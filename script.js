@@ -13,6 +13,10 @@ const birthMonth = 6;
 const birthDay = 24;
 
 
+
+
+
+
 //* This if statement will be used to perform birthdate logic
 if(currentMonth == birthMonth && currentDay == birthDay){
 
