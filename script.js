@@ -62,7 +62,7 @@ function calcYears(date){
 };
 
 //* This function will calculate the amount of time remaining until the value of birthVar
-function timeUntilTargetDate(targetDate, presentDate) {
+function timeUntilBirthDate(targetDate, presentDate) {
   // Extract month and day from targetDate
   const targetMonth = targetDate.getMonth();
   const targetDay = targetDate.getDate();
@@ -120,8 +120,9 @@ function timeUntilTargetDate(targetDate, presentDate) {
   };
 }
 
-const resultR = timeUntilTargetDate(birthDate, currentDate);
+const resultR = timeUntilBirthDate(birthDate, currentDate);
 countDownEl.textContent = `${resultR.breakdown.months} Months, ${resultR.breakdown.weeks} Weeks, ${resultR.breakdown.days} Days, ${resultR.breakdown.hours} Hours, ${resultR.breakdown.minutes} Minutes, ${resultR.breakdown.seconds} Seconds  Until your next birthday!`
+
 
 //* This variable holds the calculated age in years.
 let ageInYears = calcYears(birthDate);
