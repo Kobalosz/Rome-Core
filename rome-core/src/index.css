@@ -3,9 +3,12 @@
   font-style: normal;
   line-height: 1.5;
   font-weight: 400;
+
   color-scheme: light dark;
   color: #353535;
   background-color: #66d4f3;
+  border: 10px solid #DAD2D8;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,6 +18,17 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+}
+
+#contentContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#siteTitle{
+  align-self: center;
 }
 
 #dateContainer{
@@ -32,6 +46,19 @@
   justify-content: center;
 }
 
+#aiContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#aiTextContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 a {
@@ -86,4 +113,445 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+
+  /* Birthday Countdown CSS Styles */
+
+/* Base styles and resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Main container */
+.birthday-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7, #6366f1);
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.bg-orb-1 {
+  top: -10rem;
+  right: -10rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: rgba(244, 114, 182, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.bg-orb-2 {
+  bottom: -10rem;
+  left: -10rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: rgba(147, 197, 253, 0.2);
+  animation: pulse 2s infinite;
+  animation-delay: 1s;
+}
+
+.bg-orb-3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(254, 240, 138, 0.1);
+  animation: pulse 2s infinite;
+  animation-delay: 0.5s;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header section */
+.header-section {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  margin-bottom: 1rem;
+}
+
+.roma-core-text {
+  background: linear-gradient(to right, #fca5a5, #fde68a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.date-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* Glass card styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Birthday section */
+.birthday-celebration {
+  text-align: center;
+}
+
+.birthday-emoji {
+  font-size: 4rem;
+  animation: bounce 1s infinite;
+}
+
+.birthday-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin: 1.5rem 0;
+}
+
+.birthday-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Countdown section */
+.countdown-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .countdown-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .date-message {
+    font-size: 1.25rem;
+  }
+  
+  .countdown-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Countdown cards */
+.countdown-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.countdown-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.countdown-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+@media (min-width: 768px) {
+  .countdown-value {
+    font-size: 2.5rem;
+  }
+}
+
+.countdown-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Color variants for countdown cards */
+.text-pink { color: #dc2626; }
+.text-purple { color: #7c3aed; }
+.text-blue { color: #2563eb; }
+.text-green { color: #16a34a; }
+.text-yellow { color: #ca8a04; }
+.text-red { color: #dc2626; }
+
+/* Inspiration section */
+.inspiration-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.inspiration-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .inspiration-title {
+    font-size: 2.5rem;
+  }
+}
+
+.spinning-icon {
+  font-size: 1.875rem;
+  animation: spin 2s linear infinite;
+}
+
+/* Generate button */
+.generate-button {
+  position: relative;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #ec4899, #8b5cf6, #6366f1);
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.generate-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(236, 72, 153, 0.25);
+}
+
+.generate-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generate-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #be185d, #7c2d12, #1e40af);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.generate-button:hover::after {
+  opacity: 1;
+}
+
+.button-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Error message */
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(252, 165, 165, 0.3);
+  color: #fecaca;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Content card */
+.content-card {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.5s ease;
+}
+
+.content-card:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content-card.loading {
+  opacity: 0.5;
+}
+
+/* Content type badge */
+.content-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 2px solid;
+  margin-bottom: 1.5rem;
+}
+
+.badge-poem {
+  background: rgba(147, 51, 234, 0.2);
+  color: #e9d5ff;
+  border-color: rgba(196, 181, 253, 0.3);
+}
+
+.badge-quote {
+  background: rgba(59, 130, 246, 0.2);
+  color: #bfdbfe;
+  border-color: rgba(147, 197, 253, 0.3);
+}
+
+/* Content text */
+.content-text {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .content-text {
+    font-size: 1.5rem;
+  }
+}
+
+.content-text.poem {
+  font-style: italic;
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+.content-text.quote {
+  font-weight: 300;
+}
+
+.content-author {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+/* Placeholder content */
+.placeholder-content {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 2rem;
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
 }
