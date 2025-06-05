@@ -83,8 +83,8 @@ const BirthdayCountdown = () => {
       const GEMINI_API_KEY = 'AIzaSyDtTnrCgTwmKvrUFhDo8H6gXHsBh4kE1Vg';
       
       const prompt = contentType === 'quote'
-        ? "Provide a random inspirational quote from a famous person about life, success, womanhood, or personal growth. Provide both the quote and attribute it to the wise person. Respond in JSON format with 'text' and 'author' fields."
-        : "Provide a random short inspirational poem (4-8 lines) about hope, dreams, or overcoming challenges. Provide the poem and attribute it to a the poet. Respond in JSON format with 'text' and 'author' fields.";
+        ? "Provide a random quote from a famous person about any of the following topics: love, life, success, womanhood, or personal growth. Provide both the quote and attribute it to the wise person. Respond in JSON format with 'text' and 'author' fields."
+        : "Provide a random poem about any of the following topics: love, hope, dreams, Christianity, Womanhood or overcoming challenges. Provide the poem and attribute it to a the poet. Respond in JSON format with 'text' and 'author' fields.";
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
